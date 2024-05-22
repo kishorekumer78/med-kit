@@ -1,16 +1,24 @@
 'use client';
-import { Fragment, useState } from 'react';
-import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import {
-	ArrowPathIcon,
+	// Fragment,
+	useState
+} from 'react';
+import {
+	Dialog
+	// Disclosure,
+	// Popover,
+	// Transition
+} from '@headlessui/react';
+import {
+	// ArrowPathIcon,
 	Bars3Icon,
-	ChartPieIcon,
-	CursorArrowRaysIcon,
-	FingerPrintIcon,
-	SquaresPlusIcon,
+	// ChartPieIcon,
+	// CursorArrowRaysIcon,
+	// FingerPrintIcon,
+	// SquaresPlusIcon,
 	XMarkIcon
 } from '@heroicons/react/24/outline';
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+// import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 
 // const products = [
@@ -62,7 +70,7 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<header className="bg-blue-950">
+		<header className="bg-blue-950 border-b border-gray-400/10">
 			<nav
 				className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
 				aria-label="Global"
@@ -79,8 +87,8 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 						/>
 					</a>
 				</div>
+				{/* Mobile menu button*/}
 				<div className="flex lg:hidden">
-					{/* Mobile menu button*/}
 					<button
 						type="button"
 						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -178,7 +186,10 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 						href="/login"
 						className="text-sm font-semibold leading-6 text-slate-100 bg-blue-700 hover:bg-blue-800 rounded px-4 py-1"
 					>
-						Log in <span aria-hidden="true">&rarr;</span>
+						Log in{' '}
+						<span aria-hidden="true">
+							<span className="text-yellow-500">&rarr;</span>
+						</span>
 					</a>
 				</div>
 			</nav>
@@ -250,7 +261,7 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 									<a
 										key={i}
 										href={item.href}
-										className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-50 hover:bg-blue-900"
+										className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold  text-gray-50 hover:bg-blue-900"
 									>
 										{item.label}
 									</a>
@@ -259,7 +270,7 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 							<div className="py-6">
 								<a
 									href="/login"
-									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-50 hover:bg-blue-900"
+									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold  text-gray-50 hover:bg-blue-900"
 								>
 									Log in
 								</a>
