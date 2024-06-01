@@ -29,7 +29,7 @@ export function SearchBar({ placeHolder = '', searchAction }: Props) {
 					/>
 					<button
 						type="submit"
-						className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800  font-medium rounded-full text-sm px-4 py-2"
+						className="text-white absolute end-2.5 bottom-2.5 bg-teal-700 hover:bg-teal-950  font-medium rounded-full text-sm px-4 py-2"
 					>
 						Search
 					</button>

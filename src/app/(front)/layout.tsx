@@ -1,19 +1,16 @@
 import { ReactNode } from 'react';
-import { Navbar } from '@/components/frontEnd/Navbar';
+import { Navbar } from '@/components/common/Navbar';
 import { logoDetails, navLinks } from '@/config/data';
-import { MegaMenu } from '@/components/frontEnd/MegaMenu';
+import { MegaMenu } from '@/components/common/MegaMenu';
+import MaxWidthWrapper from '@/components/common/MaxWidthWrapper';
 
 export default function FrontLayout({ children }: { children: ReactNode }) {
 	return (
 		<>
-			<div className="bg-blue-950">
+			<div className="bg-teal-100">
 				<Navbar logoDetails={logoDetails} navLinks={navLinks} />
-				<div className="max-w-7xl mx-auto py-6">
-					<div className="container">
-						<MegaMenu />
-					</div>
-				</div>
-				{children}
+				<MegaMenu />
+				<div className="mt-[105px] bg-teal-100 min-h-screen">{children}</div>
 			</div>
 		</>
 	);

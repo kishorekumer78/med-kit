@@ -1,3 +1,5 @@
+import { Service } from '@/lib/types';
+
 export const navLinks: { href: string; label: string }[] = [
 	{ label: 'Features', href: '#' },
 	{ label: 'Marketplace', href: '#' },
@@ -21,7 +23,7 @@ export const heroTitleTexts = [
 	'Radiology'
 ];
 export const heroText =
-	"Health shouldn't be a puzzle.We provide you with safe, transparent and affordable healthcare at your finger-tips with utmost care.";
+	'Health should not be a puzzle.We provide you with safe, transparent and affordable healthcare at your finger-tips with utmost care.';
 
 export const megaMenu = [
 	{
@@ -212,4 +214,60 @@ export const megaMenu = [
 			}
 		]
 	}
+];
+
+export const services: Service[] = [
+	{
+		title: 'Telehealth',
+		slug: 'tele-health',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	},
+	{
+		title: 'ENT Consult',
+		slug: 'video-prescription-refill',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	},
+	{
+		title: 'UTI consult',
+		slug: 'uti-consult',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	},
+	{
+		title: 'ED Consult',
+		slug: 'ed-consult',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	},
+	{
+		title: 'Urgent visit',
+		slug: 'urgent-care-visit',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	},
+	{
+		title: 'Mental health',
+		slug: 'mental-health-consult',
+		description: '936 doctors available',
+		image: '/placeholder_svcs.jpg'
+	}
+];
+export const links = [
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT Name kasdfjjsjfndj', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT BNG', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' },
+	{ title: 'ENT', slug: 'ent-specialist' }
 ];

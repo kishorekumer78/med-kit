@@ -20,6 +20,8 @@ import {
 } from '@heroicons/react/24/outline';
 // import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
+import MaxWidthWrapper from './MaxWidthWrapper';
+import Link from 'next/link';
 
 // const products = [
 // 	{
@@ -70,42 +72,44 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
-		<header className="bg-blue-950 border-b border-gray-400/10">
-			<nav
-				className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
-				aria-label="Global"
-			>
-				<div className="flex lg:flex-1">
-					<a href="/" className="-m-1.5 p-1.5">
-						<span className="sr-only">{logoDetails.companyName}</span>
-						<Image
-							className="h-8 w-auto"
-							src={logoDetails.src}
-							alt={`Logo of ${logoDetails.companyName}`}
-							width={32}
-							height={32}
-						/>
-					</a>
-				</div>
-				{/* Mobile menu button*/}
-				<div className="flex lg:hidden">
-					<button
-						type="button"
-						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-						onClick={() => setMobileMenuOpen(true)}
-					>
-						<span className="sr-only">Open main menu</span>
-						<Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
-					</button>
-				</div>
-				<div className="hidden lg:flex lg:gap-x-12">
-					{navLinks.map((item, i) => (
-						<a key={i} href={item.href} className="text-sm font-semibold  text-gray-50">
-							{item.label}
+		<header className="bg-teal-100 border-b border-gray-400/30 fixed top-0 w-full z-50">
+			<MaxWidthWrapper>
+				<nav className="mx-auto flex items-center justify-between py-4" aria-label="Global">
+					<div className="flex lg:flex-1">
+						<a href="/" className="-m-1.5 p-1.5">
+							<span className="sr-only">{logoDetails.companyName}</span>
+							<Image
+								className="h-8 w-auto"
+								src={logoDetails.src}
+								alt={`Logo of ${logoDetails.companyName}`}
+								width={32}
+								height={32}
+							/>
 						</a>
-					))}
-				</div>
-				{/* <Popover.Group className="hidden lg:flex lg:gap-x-12">
+					</div>
+					{/* Mobile menu button*/}
+					<div className="flex lg:hidden">
+						<button
+							type="button"
+							className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+							onClick={() => setMobileMenuOpen(true)}
+						>
+							<span className="sr-only">Open main menu</span>
+							<Bars3Icon className="h-6 w-6 text-gray-800" aria-hidden="true" />
+						</button>
+					</div>
+					<div className="hidden lg:flex lg:gap-x-12">
+						{navLinks.map((item, i) => (
+							<Link
+								key={i}
+								href={item.href}
+								className="text-sm font-semibold tracking-wider  text-gray-800 hover:bg-teal-700 hover:text-white px-4 py-2 rounded-md"
+							>
+								{item.label}
+							</Link>
+						))}
+					</div>
+					{/* <Popover.Group className="hidden lg:flex lg:gap-x-12">
 					<Popover className="relative">
 						<Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
 							Product
@@ -181,54 +185,51 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 						Company
 					</a>
 				</Popover.Group> */}
-				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-					<a
-						href="/login"
-						className="text-sm font-semibold leading-6 text-slate-100 bg-blue-700 hover:bg-blue-800 rounded px-4 py-1"
-					>
-						Log in{' '}
-						<span aria-hidden="true">
-							<span className="text-yellow-500">&rarr;</span>
-						</span>
-					</a>
-				</div>
-			</nav>
-			{/* Mobile menu */}
-			<Dialog
-				as="div"
-				className="lg:hidden"
-				open={mobileMenuOpen}
-				onClose={setMobileMenuOpen}
-			>
-				<div className="fixed inset-0 z-10" />
-				<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-blue-950 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-					<div className="flex items-center justify-between">
-						{/* mobile menu logo */}
-						<a href="#" className="-m-1.5 p-1.5">
-							<span className="sr-only">{logoDetails.companyName}</span>
-							<Image
-								className="h-8 w-auto"
-								src={logoDetails.src}
-								alt={`Logo of ${logoDetails.companyName}`}
-								width={32}
-								height={32}
-							/>
-						</a>
-						{/* mobile menu close button */}
-						<button
-							type="button"
-							className="-m-2.5 rounded-md p-2.5 text-gray-50"
-							onClick={() => setMobileMenuOpen(false)}
+					<div className="hidden lg:flex lg:flex-1 lg:justify-end">
+						<a
+							href="/login"
+							className="text-sm font-semibold leading-6 text-gray-50 bg-teal-700 hover:bg-teal-800 rounded px-4 py-2 hover:scale-105 duration-300"
 						>
-							<span className="sr-only">Close menu</span>
-							<XMarkIcon className="h-6 w-6" aria-hidden="true" />
-						</button>
+							Login <span>&rarr;</span>
+						</a>
 					</div>
-					{/* mobile menu content */}
-					<div className="mt-6 flow-root">
-						<div className="-my-6 divide-y divide-gray-200/10">
-							<div className="space-y-2 py-6">
-								{/* <Disclosure as="div" className="-mx-3">
+				</nav>
+				{/* Mobile menu */}
+				<Dialog
+					as="div"
+					className="lg:hidden"
+					open={mobileMenuOpen}
+					onClose={setMobileMenuOpen}
+				>
+					<div className="fixed inset-0 z-10" />
+					<Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+						<div className="flex items-center justify-between">
+							{/* mobile menu logo */}
+							<a href="#" className="-m-1.5 p-1.5">
+								<span className="sr-only">{logoDetails.companyName}</span>
+								<Image
+									className="h-8 w-auto"
+									src={logoDetails.src}
+									alt={`Logo of ${logoDetails.companyName}`}
+									width={32}
+									height={32}
+								/>
+							</a>
+							{/* mobile menu close button */}
+							<button
+								type="button"
+								className="-m-2.5 rounded-md p-2.5 text-gray-800"
+								onClick={() => setMobileMenuOpen(false)}
+							>
+								<span className="sr-only">Close menu</span>
+								<XMarkIcon className="h-6 w-6" aria-hidden="true" />
+							</button>
+						</div>
+						{/* mobile menu content */}
+						<div className="mt-6 flow-root">
+							<div className="-my-6 divide-y divide-gray-200">
+								<div className="space-y-2 py-6">
+									{/* <Disclosure as="div" className="-mx-3">
 									{({ open }) => (
 										<>
 											<Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
@@ -257,28 +258,29 @@ export function Navbar({ logoDetails, navLinks }: Props) {
 									)}
 								</Disclosure> */}
 
-								{navLinks.map((item, i) => (
+									{navLinks.map((item, i) => (
+										<a
+											key={i}
+											href={item.href}
+											className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold  text-gray-800 hover:bg-gray-800 hover:text-gray-50"
+										>
+											{item.label}
+										</a>
+									))}
+								</div>
+								<div className="py-6">
 									<a
-										key={i}
-										href={item.href}
-										className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold  text-gray-50 hover:bg-blue-900"
+										href="/login"
+										className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold  text-gray-800 hover:bg-gray-800 hover:text-gray-50"
 									>
-										{item.label}
+										Log in <span>&rarr;</span>
 									</a>
-								))}
-							</div>
-							<div className="py-6">
-								<a
-									href="/login"
-									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold  text-gray-50 hover:bg-blue-900"
-								>
-									Log in
-								</a>
+								</div>
 							</div>
 						</div>
-					</div>
-				</Dialog.Panel>
-			</Dialog>
+					</Dialog.Panel>
+				</Dialog>
+			</MaxWidthWrapper>
 		</header>
 	);
 }
